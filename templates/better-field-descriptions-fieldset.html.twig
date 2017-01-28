@@ -1,0 +1,14 @@
+{#
+/**
+ * @file
+ * Better field descriptions theme implementation of a fieldset description.
+ *
+ * Available variables:
+ * - {{ label }}: The label of the description.
+ * - {{ description }}: The description itself.
+ */
+#}
+<details class="collapsible collapsed form-wrapper better-descriptions">
+  <summary class="fieldset-legend">{{ label }}</summary>
+  <div class="details-wrapper">{{ description }}</div>
+</details>
