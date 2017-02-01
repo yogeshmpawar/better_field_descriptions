@@ -93,7 +93,7 @@ function better_field_descriptions_form_node_form_alter(&$form, FormStateInterfa
 
             $label = empty($data['label'])
               ? $default_label
-              : Xss::filter($data['label']);
+              : $data['label'];
             break;
 
           case 'between':
@@ -110,8 +110,8 @@ function better_field_descriptions_form_node_form_alter(&$form, FormStateInterfa
 
         $output = [
           '#theme' => 'better_field_descriptions',
-          '#label' => $label,
-          '#description' => $description,
+          '#label' => Xss::filter($label),
+          '#description' => Xss::filter($description),
         ];
         $output = drupal_render($output);
 
