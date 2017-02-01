@@ -49,7 +49,6 @@ class BetterFieldDescriptionsFieldsForm extends ConfigFormBase {
     $better_descriptions_templates = array();
 
     foreach ($templates as $template) {
-      $path = $template->uri;
       // Removing the '.html.twig' if exists.
       if (($pos = strpos($template->name, '.')) !== FALSE) {
         $template = substr($template->name, 0, $pos);
@@ -122,8 +121,7 @@ class BetterFieldDescriptionsFieldsForm extends ConfigFormBase {
       $form['bundles'][$bundle_machine_name] = array(
         '#type' => 'details',
         '#title' => $bundles[$bundle_machine_name]['label'],
-        '#collapsible' => TRUE,
-        '#collapsed' => TRUE,
+        '#open' => TRUE, // Controls the HTML5 'open' attribute. Defaults to FALSE.
         '#prefix' => '<div id="better-field-descriptions-form-id-wrapper">',
         '#suffix' => '</div>',
       );
